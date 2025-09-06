@@ -1,0 +1,1054 @@
+/* variables */
+:root {
+    --primary1: #f4f4f4;
+    --primary2: #333;
+    --secondary1: rgba(230, 208, 11, 0.89);
+    --secondary2: rgb(148, 26, 26);
+}
+
+/* reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-padding-top: 110px;
+  scroll-behavior: smooth;
+  font-size: 18px;
+}
+body, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+li {
+    list-style-type:none
+}
+
+/*base*/
+body{
+    background-color: var(--primary1);
+    overflow-x: hidden;
+    width: 100%;
+}
+.button{
+    background: none;
+    color: var(--primary2);
+    border: 1px solid var(--primary2);
+    padding: 3px 12px;
+    box-shadow: 1px 2px 3px black;
+}
+.button:hover{
+    color: var(--primary1);
+    background: var(--primary2);
+}
+
+
+/* font */
+@font-face {
+    font-family: 'Poppins Thin';
+    src: url(Fonts/Poppins-Thin.ttf);
+}
+h1{
+    font-size: 2rem;
+    color: var(--primary1);
+}
+h2{
+    font-size: 1.8rem;
+}
+h3{
+    font-size: 1.6rem;
+}
+h4{
+  font-size: 1.2rem;
+}
+.leading{
+    font-size: 1.1rem;
+}
+
+
+/*navigator*/
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 100%;
+}
+
+.site-nav {
+  margin: 0;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary2);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.site-nav img {
+  width: auto;
+  height: 90px;
+  margin-right: 10px;
+}
+
+.site-nav ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  justify-content: center;
+  font-family: 'Poppins Thin';
+  margin: 0;
+}
+
+.site-nav a {
+  color: var(--primary1);
+  margin-left: 20px;
+}
+
+.site-nav a:hover {
+  color: var(--secondary1);
+}
+
+.site-nav h1 {
+  font-size: 1.4em;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--primary1);
+  margin-right: 20px;
+  font-family: 'Poppins Thin';
+  width: 100%;
+}
+
+/* Hamburger Menu (hidden by default on desktop) */
+.hamburger-menu {
+  display: none; /* Hidden by default */
+  cursor: pointer;
+  flex-direction: column;
+  gap: 4px;
+  width: 25px;
+  height: 18px;
+  z-index: 1000; /* Ensures the hamburger icon stays above the menu */
+}
+
+.hamburger-menu div {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary1); /* Color of the hamburger icon */
+}
+
+/* Mobile View: When hamburger is clicked */
+.site-nav ul {
+  display: flex; /* Default to showing on desktop */
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Hide navigation by default on mobile and adjust layout */
+.site-nav ul.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background-color: var(--primary2);
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  z-index: 999; /* Ensures menu appears above content */
+}
+
+.site-nav ul li {
+  margin: 15px 0;
+}
+
+.site-nav ul li a {
+  color: var(--primary1);
+  font-size: 1.2em;
+}
+
+/* Media Query for Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  .site-nav {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .site-nav ul {
+      display: none; 
+      width: 100%;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      top: 60px;
+  }
+
+  .hamburger-menu {
+      display: flex;
+  }
+
+  .site-nav ul.active {
+      display: flex; 
+      z-index: 999;
+      transform: translateY(0);
+  }
+  .site-nav h1{
+    border-bottom: 0px;
+  }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  .site-nav {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.site-nav ul {
+    display: none; 
+    width: 100%;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 60px;
+}
+.site-nav h1{
+  border-bottom: 0;
+}
+.hamburger-menu {
+    display: flex;
+}
+
+.site-nav ul.active {
+    display: flex; 
+    z-index: 999;
+}
+}
+
+
+
+/*home page*/
+#home{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 50px 20px 90px 20px;
+    align-items: end;
+    gap: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.home-text{
+    grid-column: 1;
+    align-self: flex-start;
+    gap: 20px;
+    font-family: 'Poppins Thin';
+    word-wrap: break-word;
+}
+.home-text h2{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+    font-size: 2.5em;
+}
+.home-text .leading{
+   margin-bottom: 60px;
+   margin-left: 20px;
+   text-align: start;
+   font-size: 1.8em;
+}
+.home-text .leading, .home-text hr{
+  font-family: 'Poppins Thin';
+}
+
+.home-img{
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items:flex-start;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.home-img img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.home-text .button{
+    margin: 30px;
+}
+.button{
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/* Media Query for Mobile (max-width: 768px) */
+@media (max-width: 768px) {
+  #home {
+      grid-template-columns: 1fr; /* Stack the text and image vertically */
+      padding: 40px 15px; /* Reduce padding on smaller screens */
+      width: 100%; /* Prevent overflow on mobile */
+  }
+
+  .home-text {
+      grid-column: 1; /* Make sure the text takes full width */
+      text-align: center; /* Center the text */
+      width: 100%; /* Prevent text container overflow */
+  }
+
+  .home-text h2 {
+      font-size: 1.8em; /* Reduce font size on mobile */
+      margin-top: 20px;
+      margin-bottom: 20px;
+      margin-left: 0;
+      word-wrap: break-word; /* Prevent text overflow */
+  }
+
+  .home-text .leading {
+      font-size: 1.4em; 
+      margin-left: 0;
+      margin-bottom: 40px; 
+  }
+
+  .home-img {
+      grid-column: 1; 
+      margin-top: 10px;
+      margin-bottom: 20px;
+      width: 100%; 
+  }
+
+  .home-img img {
+      max-width: 100%; 
+      margin-top: 10px;
+      object-fit: cover; 
+  }
+
+  .button {
+      margin-top: 30px;
+      margin-bottom: 30px;
+  }
+}
+
+
+/*About Us*/
+#aboutus{
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: var(--primary2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.aboutuscard {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 25px;
+    background-color: #ffffff;
+    box-shadow: 10px 0 50px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    margin-bottom: 10px;
+    padding: 20px;
+  }
+  .aboutuscard:nth-child(1) {
+    margin-right: 30px;
+}
+#aboutus:hover .aboutuscard {
+    filter: blur(15px);
+    transform: scale(0.9);
+    opacity: 0.5;
+    transition: 0.9s;
+  }
+ #aboutus .aboutuscard:hover {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+    transition: 0.9s;
+  }
+  #aboutus h2{
+    font-family: 'Poppins Thin';
+    font-weight: bolder;
+    text-align: center;
+    color: var(--primary1);
+  }
+  #aboutus h3 {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    margin: 20px 0 0 20px;
+    font-size: 1.2em;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 15px;
+    color: #ffffff;
+    mix-blend-mode: difference;
+    gap: 20px;
+    font-family: 'Poppins Thin';
+  }
+
+  #aboutus p{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 0 20px 60px 20px;
+    font-size: 18px;
+    color: #ffffff;
+    mix-blend-mode: difference;
+    font-family: 'Poppins Thin';
+  }
+  #background{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #000000;
+    margin-top: -330px;
+    margin-left: 200px;
+  }
+  #values{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: #000000;
+    margin-top: -330px;
+    margin-left: 200px;
+  }
+  #mission{
+    height: 100%;
+    width: 100%;
+    background-color: #000000;
+    border-radius: 20px;
+    transform: rotate(70deg);
+    margin-top: -430px;
+    margin-left: 200px;
+  }
+  @media (max-width: 768px) {
+    #aboutus {
+        height: auto;
+        padding: 20px 10px;
+        flex-direction: column; /* Stack cards vertically */
+    }
+
+    .aboutuscard {
+        width: 100%; /* Full width on mobile */
+        max-width: 300px; /* Optional max width for readability */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 20px;
+        padding: 15px;
+        box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+        max-width: 100%;
+    }
+
+    #aboutus h2 {
+        font-size: 1.6em; /* Adjust font size for mobile */
+    }
+
+    #aboutus h3 {
+        font-size: 1em; /* Adjust font size for mobile */
+        letter-spacing: 10px;
+    }
+
+    #aboutus p {
+        font-size: 0.9em; /* Adjust font size for mobile */
+        line-height: 1.5;
+    }
+
+    /* Adjust shapes behind the cards for mobile */
+    #background, #values, #mission {
+        width: 150px; /* Make smaller for mobile */
+        height: 150px;
+        margin-top: -200px;
+        margin-left: 0;
+    }
+}
+
+  
+
+/*Facilities*/
+#facilities{
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  align-items: flex-start; 
+  gap: 20px; 
+  padding: 20px; 
+  height: auto;
+  width: 100vw;
+  overflow: hidden;
+}
+#facilities h2{
+  font-family: 'Poppins Thin';
+  font-weight: bolder;
+  font-size: 3em;
+}
+#facilities h3{
+  font-weight: bolder;
+}
+#facilities p{
+  font-weight: bold;
+}
+.facilities{
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  flex: 1;
+  gap: 10px;
+}
+.facilitiescard{
+  background: white;
+  height: 400px; 
+  width: 300px; 
+  transition: 0.6s all ease;
+  display: flex;
+  flex-direction: column; 
+  border-radius: 8px; 
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+  .cardTop {
+    transition: 0.4s all ease;
+    height: 65%;
+    width: 100%;
+  }
+  .cardTop img{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .cardText {
+    min-height: 100%;
+    max-height: 100%;
+    padding: 20px;
+    font-family: 'Poppins Thin';
+    flex-grow: 1;
+  }
+  
+  .cardTitle {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .cardHoverText {
+    visibility: hidden;
+  }
+  .facilitiescard:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  }
+  .facilitiescard:hover .cardHoverText {
+    visibility: visible;
+    transition: 0.4s all ease;
+    transition-delay: 0.1999s;
+  }
+  @media screen and (max-width: 768px){
+    .facilities{
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 1024px) and (min-width: 768px) {
+    .facilities{
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+
+
+  /*courses*/
+#courses{
+  background-color: var(--primary1);
+  grid-template-columns: repeat(auto-fit, 1fr);
+  width: 100vw;
+  overflow: hidden;
+  gap: 20px;
+}
+.course-card-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 100px;
+}
+.coursecard{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 420px;
+  width: 654px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+.course-image{
+ overflow: hidden;
+ border-bottom-left-radius: 7px;
+}
+.course-image img{
+  border-top-left-radius: 7px;
+  border-bottom-left-radius: 7px;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+.course-info{
+  padding: 10px;
+  border-radius: 0 7px 10px 7px;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  height: 100px;
+}
+
+.coursecard  p{
+  margin-top: 10px;
+  margin-bottom: 50px;
+  font-family: 'Poppins Thin';
+  font-weight: bold;
+}
+#courses h2{
+  font-family: 'Poppins Thin';
+  margin-top: 50px;
+}
+.course-text h3{
+  color: #474747;
+  font-family: 'Poppins Thin';
+  font-weight: bolder;
+}
+.course-text h3, .course-price-btn{
+  width: 100%;
+  position: relative;
+}
+.course-price-btn{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+  width: 100%;
+  margin-top: 30px;
+}
+.course-price-btn p{
+  display: block;
+  font-family: 'Poppins Thin';
+  margin: 0 0 0 38px;
+  font-size: 1rem;
+  font-weight: bolder;
+  color: #474747;
+  width: 100%;
+}
+span{
+  display: inline-block;
+  height: 50px;
+  font-family: 'Suranna', serif;
+  font-size: 34px;
+}
+.course-price-btn button{
+  height: 50px;
+  width: 100px;
+  margin: 0 40px 0 16px;
+  box-sizing: border-box;
+  border: transparent;
+  border-radius: 60px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  background-color: var(--secondary2);
+  cursor: pointer;
+  outline: none;
+}
+.course-price-btn button:hover{
+  background-color: var(--secondary1);
+}
+@media screen and (max-width: 768px){
+  .course-card{
+    grid-template-columns: 1fr;
+  }
+  .course-price-btn{
+    margin: 0;
+  }
+  .course-price-btn button{
+    height: 40px;
+  }
+  .course-image img{
+    height: 100%;
+  }
+  .course-price-btn p{
+    margin-left: 48px;
+  }
+}
+
+
+
+/*Timetable*/
+#timetable{
+  font-family: 'Poppins Thin';
+  display: grid;
+  padding: 90px 100px 240px 100px;
+  background-color: var(--primary2);
+  color: var(--primary1);
+}
+.timetable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#timetable p{
+  margin-bottom: 50px;
+}
+table.timetable, td,th{
+  border: 2px solid var(--primary1);
+  padding: 7px;
+}
+table.timetable{
+  border-collapse: collapse;
+}
+#timetable h2, p{
+  padding: 5px;
+}
+#timetable th{
+  color: var(--primary1);
+}
+#timetable th:hover{
+  color: var(--secondary1);
+}
+#timetable td{
+  text-align: center;
+}
+.timetable-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+.timetable th, .timetable td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
+#timetable .timetable-wrapper {
+  overflow: scroll;
+}
+@media (max-width: 768px) {
+  #timetable p{
+    display: none;
+  }
+  .timetable-container {
+    overflow-x: scroll;
+    width: 100%;
+    margin-bottom: 15px; 
+  }
+  .timetable-wrapper {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+  }
+  .timetable-wrapper::-webkit-scrollbar{
+    height: 8px;
+  }
+  .timetable {
+    width: max-content;
+    border-collapse: separate;
+    min-width: 100%;
+    table-layout: auto;
+  } 
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  #timetable p{
+    display: none;
+  }
+  .timetable-container {
+    overflow-x: auto;
+    width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .timetable {
+    width: max-content;
+    border-collapse: separate;
+    min-width: 100%;
+    table-layout: auto;
+  } 
+}
+
+
+
+
+/*Membership*/
+#membership{
+  display: flex;
+  flex-wrap: wrap; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  gap: 20px; 
+  background-color: var(--primary1);
+  height: 100%;
+  overflow: hidden;
+  margin: 20px;
+}
+#membership h2{
+  font-size: 3em;
+  font-family: 'Poppins Thin';
+  font-weight: bolder;
+}
+#membership p{
+  font-family: 'Poppins Thin';
+  font-size: 1.2em;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.plan-grid{
+  grid-template-columns: repeat(3, 1fr);
+  display: grid;
+  flex: 1;
+  gap: 20px;
+}
+.card {
+  background-color: var(--primary1);
+  border: 3px solid var(--secondary2);
+  border-radius: 5px;
+  position: relative;
+  min-height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.3);
+}
+.plan-details{
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  transition: border-color 0.2s ease-out;
+}
+.plan-type{
+  color: var(--primary2);
+  font-size: 2.5rem;
+  font-weight: bolder;
+  line-height: 1em;
+  font-family: 'Poppins Thin';
+}
+.plan-cost{
+  font-size: 1.8rem;
+  font-weight: bolder;
+  padding: 0.5rem 0;
+  font-family: 'Poppins Thin';
+}
+.slash {
+  font-weight: normal;
+}
+.plan-cycle {
+  font-size: 1.7rem;
+  font-variant: none;
+  border-bottom: none;
+  cursor: inherit;
+  text-decoration: none;
+}
+@media screen and (max-width:768px){
+  .plan-grid{
+    display: flex;
+    flex-direction: column;
+  }
+  #membership h2{
+    font-size: 2em;
+  }
+  #membership p{
+    font-size: 1em;
+  }
+  .plan-type, .plan-cost, .plan-cycle{
+    font-size:1.2em ;
+  }
+}
+@media (max-width: 1024px) and (min-width: 768px) {
+  .plan-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  #membership h2{
+    font-size: 2.2em;
+  }
+  #membership p{
+    font-size: 1em;
+  }
+  .plan-type, .plan-cost, .plan-cycle{
+    font-size:1.2em ;
+  }
+}
+
+/* Sign Up Form */
+#signupButton{
+  border: 3px solid var(--secondary2);
+  border-radius: 15px;
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-family: 'Poppins Thin';
+  font-weight: bold;
+}
+#signupButton:hover{
+  background-color: var(--secondary2);
+  color: var(--primary1);
+}
+.form-container {
+  display: none;
+  font-family: 'Poppins Thin';
+  font-weight: bold;
+  background-color: var(--primary2);
+  border: none;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-container.active {
+  display: block;
+}
+
+.form-container h2 {
+  color: var(--primary1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: var(--primary1);
+}
+
+form select, form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+form button[type="submit"] {
+  font-family: 'Poppins Thin';
+  font-weight: bold;
+  background-color: var(--primary1);
+  color: var(--primary2);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--secondary2);
+  color: var(--primary1);
+}
+.signup-button{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+/* Instructors*/
+.instructor-cards{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+}
+.instructor-card {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.instructor-card span {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.5rem;
+}
+
+.instructor-header {
+  border-radius: 10px 10px 0 0;
+  padding: 10px;
+  background-color: var(--secondary2);
+  color: white;
+  cursor: pointer;
+  width: 100%;
+}
+
+.instructor-details {
+  width: auto;
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+  background-color: var(--primary2);
+  color: #f5f5f5;
+  transition: max-height 300ms ease-in-out;
+  display: none;
+  overflow: hidden;
+}
+
+.instructor-details span {
+  color: white;
+  font-family: 'Poppins thin';
+}
+.instructor-details img{
+  width: 100px;
+}
+#instructor h2{
+  font-size: 3em;
+  font-family: 'Poppins Thin';
+  margin: 30px;
+}
+#instructor h3, ul{
+  font-family: 'Poppins Thin';
+}
+
+
+
+ /*Footer*/
+ footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 14px;
+  font-family: 'Poppins Thin';
+}
+
+.footer-info{
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.footer-info li{
+  margin: 5px 0;
+}
+
+.social-media-links img {
+  width: 30px; 
+  height: 30px;
+  transition: transform 0.3s ease; 
+}
+
+.social-media-links img:hover {
+  transform: scale(1.1); 
+}
